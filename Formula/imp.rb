@@ -6,20 +6,22 @@ class Imp < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-aarch64-apple-darwin.tar.gz"
+      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-mac-arm64.tar.gz"
       sha256 "PLACEHOLDER_MAC_ARM64_SHA256"
     else
-      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "PLACEHOLDER_MAC_X64_SHA256"
+      on_intel do
+        url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-linux-x64.tar.gz"
+        sha256 "PLACEHOLDER_LINUX_X64_SHA256"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-aarch64-unknown-linux-gnu.tar.gz"
+      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-linux-arm64.tar.gz"
       sha256 "PLACEHOLDER_LINUX_ARM64_SHA256"
     else
-      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-x86_64-unknown-linux-gnu.tar.gz"
+      url "https://github.com/snatvb/imp/releases/download/v#{version}/imp-#{version}-linux-x64.tar.gz"
       sha256 "PLACEHOLDER_LINUX_X64_SHA256"
     end
   end
